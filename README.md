@@ -1,6 +1,4 @@
-# Parcial Aplicaciones Móviles
-
-Aplicación realizada con React Native y Expo.
+Aplicación realizada con React Native y Expo
 
 ## Funcionalidades
 
