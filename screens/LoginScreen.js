@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useState } from "react";
-import { Alert, Button, Text, TextInput, View } from "react-native";
+import { Alert, Button, StyleSheet, Text, TextInput, View } from "react-native";
 
 export default function LoginScreen({ navigation }) {
   const [username, setUsername] = useState("");
@@ -24,18 +24,14 @@ export default function LoginScreen({ navigation }) {
   };
 
   return (
-    <View style={{ padding: 20 }}>
-      <Text style={{ fontSize: 30, marginBottom: 20 }}>Login</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Login</Text>
 
       <TextInput
         placeholder="Usuario"
         value={username}
         onChangeText={setUsername}
-        style={{
-          borderWidth: 1,
-          padding: 10,
-          marginBottom: 10,
-        }}
+        style={styles.input}
       />
 
       <TextInput
@@ -43,16 +39,12 @@ export default function LoginScreen({ navigation }) {
         secureTextEntry={true}
         value={password}
         onChangeText={setPassword}
-        style={{
-          borderWidth: 1,
-          padding: 10,
-          marginBottom: 10,
-        }}
+        style={styles.input}
       />
 
       <Button title="Iniciar Sesión" onPress={loginUser} />
 
-      <View style={{ marginTop: 10 }}>
+      <View style={styles.registerButton}>
         <Button
           title="Ir a Registro"
           onPress={() => navigation.navigate("Register")}
@@ -61,3 +53,24 @@ export default function LoginScreen({ navigation }) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 20,
+  },
+
+  title: {
+    fontSize: 30,
+    marginBottom: 20,
+  },
+
+  input: {
+    borderWidth: 1,
+    padding: 10,
+    marginBottom: 10,
+  },
+
+  registerButton: {
+    marginTop: 10,
+  },
+});
